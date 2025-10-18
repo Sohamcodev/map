@@ -8,15 +8,15 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
-      --spotify-green: #1DB954;
-      --spotify-dark-green: #00674F;
+      --spotify-green: #82f180;
+      --spotify-dark-green: #f5f6d0;
       --black: #000;
       --white: #fff;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Impact', sans-serif;
       background-color: var(--black);
       color: var(--white);
       display: flex;
@@ -27,7 +27,9 @@
     .title {
       margin-top: 30px;
       font-size: 1.8rem;
-      color: var(--spotify-green);
+      color: var(--spotify-dark-green);
+      
+
     }
 
     #map {
@@ -56,15 +58,21 @@
       .bindPopup('<b>Hello world!</b><br />I am a popup.');
 
     L.circle([18.518387, 73.814796], {
-      color: '#5991FF',
-      fillColor: '#5991FF',
-      fillOpacity: 0.01,
-      radius: 500
+      color: '#80ED58',
+      fillColor: '#80ED58',
+      fillOpacity: 0.1,
+      radius: 300
     }).addTo(map);
   </script>
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 
