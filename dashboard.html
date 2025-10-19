@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <style>
+    :root {
+      --spotify-green: #4eea4c;
+      --spotify-dark-green: #edf354;
+      --black: #000;
+      --white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Impact', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .title {
+      font-size: 2rem;
+      color: var(--spotify-dark-green);
+      margin-bottom: 40px;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: var(--black);
+      background-color: var(--spotify-green);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background-color: var(--spotify-dark-green);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">Dashboard</div>
+  <div class="button-container">
+    <a href="live-map.html" class="nav-button">Live Map</a>
+    <a href="database.html" class="nav-button">Database</a>
+  </div>
+
+</body>
+</html>
