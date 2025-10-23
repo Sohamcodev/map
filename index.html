@@ -4,30 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <style>
     :root {
-      --spotify-green: #4eea4c;
-      --spotify-dark-green: #edf354;
-      --black: #000;
+      --spotify-green: #6D8196;
+      --spotify-dark-green: #00674F;
+      --obsidian: #1a1e1e;
       --white: #fff;
     }
 
     body {
       margin: 0;
-      font-family: 'Impact', sans-serif;
-      background-color: var(--black);
+      font-family: 'Archivo Black', sans-serif;
+      background-color: var(--obsidian);
       color: var(--white);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      position: relative;
+       transition: opacity 0.5s ease;
+    }
+    .fade-out {
+      animation: fadeOut 0.5s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+    }
+
+    .time-display {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      text-align: right;
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
 
     .title {
-      font-size: 2rem;
+      font-size: 5.5rem;
       color: var(--spotify-dark-green);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
       margin-bottom: 40px;
+      color: var(--white);
+      text-align: center;
     }
 
     .button-container {
@@ -36,17 +66,26 @@
     }
 
     .nav-button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      color: var(--black);
+      padding: 25px 25px;
+      font-size: 2rem;
+      color: var(--obsidian);
       background-color: var(--spotify-green);
       border: none;
       border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s ease;
+       opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.5s;
     }
-
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     .nav-button:hover {
       background-color: var(--spotify-dark-green);
     }
@@ -54,12 +93,46 @@
 </head>
 <body>
 
-  <div class="title">Dashboard</div>
-  <div class="button-container">
-    <a href="live-map.html" class="nav-button">Live Map</a>
-    <a href="database.html" class="nav-button">Database</a>
+  <div class="time-display">
+    <div id="time">--:--:--</div>
+    <div id="date">Loading date...</div>
   </div>
 
-</body>
+  <div class="title">Dashboard</div> 
 
+  <div class="button-container">
+    <button class="nav-button" data-href="live-map.html">Live Map</button>
+    <button class="nav-button" data-href="database.html">Database</button>
+  </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      const date = now.toLocaleDateString(undefined, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      document.getElementById('time').textContent = time;
+      document.getElementById('date').textContent = date;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime(); // initial call
+        document.querySelectorAll('.nav-button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = button.getAttribute('data-href');
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = target;
+        }, 500);
+      });
+    });
+  </script>
+
+</body>
 </html>
