@@ -6,17 +6,18 @@
   <title>Live Map</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <style>
     :root {
-      --spotify-green: #4eea4c;
-      --spotify-dark-green: #edf354;
-      --black: #000;
+      --spotify-green: #6D8196;
+      --spotify-dark-green: #00674F;
+      --black: #1a1e1e;
       --white: #fff;
     }
 
     body {
       margin: 0;
-      font-family: 'Impact', sans-serif;
+      font-family: 'Archivo Black', sans-serif;
       background-color: var(--black);
       color: var(--white);
       display: flex;
@@ -26,7 +27,7 @@
 
     .title {
       margin-top: 30px;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       color: var(--spotify-dark-green);
       
 
@@ -58,9 +59,9 @@
       .bindPopup('<b>Hello world!</b><br />I am a popup.');
 
     L.circle([18.518387, 73.814796], {
-      color: '#80ED58',
-      fillColor: '#80ED58',
-      fillOpacity: 0.1,
+      color: '#00674F',
+      fillColor: '#00674F',
+      fillOpacity: 0.2,
       radius: 300
     }).addTo(map);
   </script>
